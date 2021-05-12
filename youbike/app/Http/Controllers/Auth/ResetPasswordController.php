@@ -5,6 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
+/**
+ * @group 使用者
+ *
+ * 使用者重製密碼
+ */
+
 class ResetPasswordController extends Controller
 {
     /*

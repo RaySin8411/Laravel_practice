@@ -8,6 +8,12 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @group 使用者
+ *
+ * 使用者註冊
+ */
+
 class RegisterController extends Controller
 {
     /*
