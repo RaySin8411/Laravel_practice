@@ -4,55 +4,74 @@ namespace App\Http\Controllers;
 
 use App\Ubike;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
+
+/**
+ * @group Ubike
+ *
+ * Ubike
+ */
+
 
 class UbikeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 所有Ubike資訊
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response Response::HTTP_OK
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // 設定預設值
+        $marker = $request->marker==null ? 1:$request->marker;
+        $limit = $request->limit==null ? 10:$request->limit;
+
+        $ubikes = Ubike::orderBy('id', 'asc')
+            ->where('id', '>=', $marker)
+            ->limit($limit)
+            ->get();
+        return response(['ubikes' => $ubikes],Response::HTTP_OK );
     }
 
     /**
-     * Show the form for creating a new resource.
+     * 秀出建立Ubike的列表
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 儲存新的Ubike資訊
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response Response::HTTP_CREATED
      */
     public function store(Request $request)
     {
-        //
+        $ubike = Ubike::create($request->all());
+
+        return response($ubike, Response::HTTP_CREATED);
     }
 
     /**
-     * Display the specified resource.
+     * 秀出特定Ubike資訊
      *
-     * @param  \App\Ubike  $ubike
-     * @return \Illuminate\Http\Response
+     * @param \App\Ubike $ubike
+     * @return \Illuminate\Http\Response Response::HTTP_OK
      */
     public function show(Ubike $ubike)
     {
-        //
+        return response($ubike, Response::HTTP_OK);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * 編輯Ubike資訊
      *
-     * @param  \App\Ubike  $ubike
+     * @param \App\Ubike $ubike
      * @return \Illuminate\Http\Response
      */
     public function edit(Ubike $ubike)
@@ -61,25 +80,29 @@ class UbikeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * 更新Ubike資訊
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Ubike  $ubike
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Ubike $ubike
+     * @return \Illuminate\Http\Response Response::HTTP_OK
      */
     public function update(Request $request, Ubike $ubike)
     {
-        //
+        $ubike->update($request->all());
+        return response($ubike, Response::HTTP_OK);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 移除Ubike資訊
      *
-     * @param  \App\Ubike  $ubike
-     * @return \Illuminate\Http\Response
+     * @param \App\Ubike $ubike
+     * @return \Illuminate\Http\Response Response::HTTP_NO_CONTENT
      */
     public function destroy(Ubike $ubike)
     {
-        //
+        // 刪除
+        $ubike->delete();
+        // 回傳null 並且給予 204 狀態碼
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

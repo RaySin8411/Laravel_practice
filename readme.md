@@ -41,3 +41,5 @@
         composer require --dev mpociot/laravel-apidoc-generator
         ## 配置檔案
         php artisan vendor:publish --provider="Mpociot\ApiDoc\ApiDocGeneratorServiceProvider" --tag=apidoc-config
+        ## 產生API 文件
+        php artisan apidoc:generate
