@@ -1,19 +1,17 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Ubike;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-
 /**
  * @group Ubike
  *
  * Ubike
  */
-
-
 class UbikeController extends Controller
 {
     /**
@@ -21,17 +19,17 @@ class UbikeController extends Controller
      *
      * @return \Illuminate\Http\Response Response::HTTP_OK
      */
-    public function index(Request $request)
+    public function index()
     {
-        // 設定預設值
-        $marker = $request->marker==null ? 1:$request->marker;
-        $limit = $request->limit==null ? 10:$request->limit;
+        $json = file_get_contents('https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.json');
+        $obj = json_decode($json, true);
+        $obj = $obj["retVal"];
+        $sna = array();
+        foreach ($obj as $id) {
+            $sna [] = $id['sna'];
 
-        $ubikes = Ubike::orderBy('id', 'asc')
-            ->where('id', '>=', $marker)
-            ->limit($limit)
-            ->get();
-        return response(['ubikes' => $ubikes],Response::HTTP_OK );
+        }
+        return json_encode($sna, JSON_UNESCAPED_UNICODE);
     }
 
     /**
