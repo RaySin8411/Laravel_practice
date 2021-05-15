@@ -33,74 +33,29 @@ class UbikeController extends Controller
     }
 
     /**
-     * 秀出建立Ubike的列表
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
-
-    /**
-     * 儲存新的Ubike資訊
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response Response::HTTP_CREATED
-     */
-    public function store(Request $request)
-    {
-        $ubike = Ubike::create($request->all());
-
-        return response($ubike, Response::HTTP_CREATED);
-    }
-
-    /**
      * 秀出特定Ubike資訊
      *
      * @param \App\Ubike $ubike
      * @return \Illuminate\Http\Response Response::HTTP_OK
      */
-    public function show(Ubike $ubike)
-    {
-        return response($ubike, Response::HTTP_OK);
-    }
 
-    /**
-     * 編輯Ubike資訊
-     *
-     * @param \App\Ubike $ubike
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Ubike $ubike)
+    public function show()
     {
-        //
-    }
+        $sno = Input::get('sno', false);
+//        $sna = Input::get('sna', false);
+//        $tot = Input::get('tot', false);
+//        $sbi = Input::get('sbi', false);
+//        $sarea = Input::get('sarea', false);
+//        $mday = Input::get('mday', false);
+//        $ar = Input::get('ar', false);
+//        $snaen = Input::get('snaen', false);
+//        $sarean = Input::get('sarean', false);
+//        $bemp = Input::get('bemp', false);
+//        $act = Input::get('act', false);
 
-    /**
-     * 更新Ubike資訊
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Ubike $ubike
-     * @return \Illuminate\Http\Response Response::HTTP_OK
-     */
-    public function update(Request $request, Ubike $ubike)
-    {
-        $ubike->update($request->all());
-        return response($ubike, Response::HTTP_OK);
-    }
+        $json = file_get_contents('https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.json');
+        $obj = json_decode($json, true);
+        $obj = $obj["retVal"];
 
-    /**
-     * 移除Ubike資訊
-     *
-     * @param \App\Ubike $ubike
-     * @return \Illuminate\Http\Response Response::HTTP_NO_CONTENT
-     */
-    public function destroy(Ubike $ubike)
-    {
-        // 刪除
-        $ubike->delete();
-        // 回傳null 並且給予 204 狀態碼
-        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

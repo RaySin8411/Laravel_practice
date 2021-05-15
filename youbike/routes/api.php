@@ -18,4 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('ubike', 'UbikeController');
+//Route::apiResource('ubike', 'UbikeController');
+
+Route::get('ubike', 'UbikeController@index');
+Route::get('ubike/{sno}', ['as' => 'ubike', 'uses' => 'UbikeController@show']);
