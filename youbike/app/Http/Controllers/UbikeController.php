@@ -7,6 +7,7 @@ use App\Ubike;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+
 /**
  * @group Ubike
  *
@@ -39,23 +40,30 @@ class UbikeController extends Controller
      * @return \Illuminate\Http\Response Response::HTTP_OK
      */
 
-    public function show()
+    public function show(Request $request)
     {
-        $sno = Input::get('sno', false);
-//        $sna = Input::get('sna', false);
-//        $tot = Input::get('tot', false);
-//        $sbi = Input::get('sbi', false);
-//        $sarea = Input::get('sarea', false);
-//        $mday = Input::get('mday', false);
-//        $ar = Input::get('ar', false);
-//        $snaen = Input::get('snaen', false);
-//        $sarean = Input::get('sarean', false);
-//        $bemp = Input::get('bemp', false);
-//        $act = Input::get('act', false);
+        $sno = $request->sno;
 
         $json = file_get_contents('https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.json');
         $obj = json_decode($json, true);
         $obj = $obj["retVal"];
-
+        $info = array();
+        foreach ($obj as $id) {
+//            $info [] = $id['sno'];
+            if ($sno == $id['sno']){
+                $info['sno'] = $id['sno'];
+                $info['sna'] = $id['sna'];
+                $info['tot'] = $id['tot'];
+                $info['sbi'] = $id['sbi'];
+                $info['sarea'] = $id['sarea'];
+                $info['mday'] = $id['mday'];
+                $info['ar'] = $id['ar'];
+                $info['snaen'] = $id['snaen'];
+                $info['sareaen'] = $id['sareaen'];
+                $info['bemp'] = $id['bemp'];
+                $info['act'] = $id['act'];
+            }
+        }
+        return json_encode($info, JSON_UNESCAPED_UNICODE);
     }
 }
