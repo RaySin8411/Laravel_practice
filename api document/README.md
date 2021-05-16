@@ -10,7 +10,7 @@ includes:
 search: true
 
 toc_footers:
-[Documentation Powered by Documentarian(]http://github.com/mpociot/documentarian)
+[Documentation Powered by Documentarian](http://github.com/mpociot/documentarian)
 ---
 <!-- START_INFO -->
 # Info
