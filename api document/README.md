@@ -1,16 +1,10 @@
 ---
-title: API Reference
+title: API Document
 
 language_tabs:
 - bash
 - javascript
 
-includes:
-
-search: true
-
-toc_footers:
-- [Documentation Powered by Documentarian](http://github.com/mpociot/documentarian)
 
 ---
 <!-- START_INFO -->
@@ -18,6 +12,10 @@ toc_footers:
 
 Welcome to the generated API reference.
 [Get Postman Collection](http://localhost/docs/collection.json)
+
+API Reference
+[Documentation Powered by Documentarian](http://github.com/mpociot/documentarian)
+
 
 <!-- END_INFO -->
 
