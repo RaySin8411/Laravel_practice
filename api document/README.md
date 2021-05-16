@@ -11,6 +11,7 @@ search: true
 
 toc_footers:
 - [Documentation Powered by Documentarian](http://github.com/mpociot/documentarian)
+
 ---
 <!-- START_INFO -->
 # Info
@@ -20,7 +21,7 @@ Welcome to the generated API reference.
 
 <!-- END_INFO -->
 
-#Ubike
+# Ubike
 
 
 Ubike
@@ -588,7 +589,7 @@ fetch(url, {
 
 <!-- END_cb859c8e84c35d7133b6a6c8eac253f8 -->
 
-#使用者
+# 使用者
 
 
 使用者登入
