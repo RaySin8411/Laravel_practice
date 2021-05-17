@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "75a02d75-a945-4676-8fd8-a11a6e10618a",
+        "_postman_id": "63d5f78f-9747-4bef-b9d6-790c4366b988",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -304,7 +304,7 @@
                     }
                 },
                 {
-                    "name": "\u5bc6\u78bc\u91cd\u88fd\u756b\u9762",
+                    "name": "\u986f\u793a\u8868\u55ae\u4ee5\u8acb\u6c42\u5bc6\u78bc\u91cd\u7f6e\u93c8\u63a5",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -327,12 +327,12 @@
                             "mode": "raw",
                             "raw": "[]"
                         },
-                        "description": "\u5982\u679c\u6c92\u6709token, \u986f\u793a\u9700\u6c42\u9023\u7d50",
+                        "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "\u91cd\u88fd",
+                    "name": "\u91cd\u65b0\u8a2d\u5b9a\u4f7f\u7528\u8005\u5bc6\u78bc",
                     "request": {
                         "url": {
                             "protocol": "http",
