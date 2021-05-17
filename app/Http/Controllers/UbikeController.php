@@ -35,7 +35,15 @@ class UbikeController extends Controller
         foreach ($obj as $id) {
             foreach ($sarea as $group){
                 if ($group == $id['sarea']){
-                    $sna[$group] [] = $id['sna'];
+                    $sno = array();
+
+                    $sno['站點代號']= $id['sno'];
+                    $sno['是否暫停營運']= (boolean)$id['act'];
+                    $sno['場站名稱']= $id['sna'];
+                    $sno['可借車位數']= (int)$id['sbi'];
+                    $sno['可還空位數']= (int)$id['bemp'];
+                    $sno['資料更新時間']= date('F jS, Y h:i:s', strtotime($id['mday']));
+                    $sna[$group] [] = $sno;
                     break;
                 }
 
@@ -64,16 +72,16 @@ class UbikeController extends Controller
 //            $info [] = $id['sno'];
             if ($sno == $id['sno']){
                 $info['站點代號'] = $id['sno'];
-                $info['中文場站區域'] = $id['sarea'];
+                $info['場站區域'] = $id['sarea'];
 //                $info['英文場站區域'] = $id['sareaen'];
-                $info['中文場站名稱'] = $id['sna'];
+                $info['場站名稱'] = $id['sna'];
 //                $info['英文場站名稱'] = $id['snaen'];
-                $info['中文地址'] = $id['ar'];
+                $info['地址'] = $id['ar'];
 //                $info['英文地址'] = $id['aren'];
 //                $info['場站總停車格'] = $id['tot'];
                 $info['可借車位數'] = (int)$id['sbi'];
                 $info['可還空位數'] = (int)$id['bemp'];
-//                $info['是否暫停營運'] = $id['act'];
+                $info['是否暫停營運'] = (boolean)$id['act'];
                 $info['資料更新時間'] = date('F jS, Y h:i:s', strtotime($id['mday']));
             }
         }
