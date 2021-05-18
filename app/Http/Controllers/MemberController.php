@@ -38,7 +38,11 @@ class MemberController extends BaseController
         if (Auth::user()->isAdmin) //是管理者，回傳所有會員資料
             return $this->sendResponse($admins->toArray(), 'Members retrieved successfully.');
         else //不是管理者，回傳該會員自己的資料
-            return $members;
+            $response = array();
+            $email = $members['email'];
+            $response['message'] = "Welcome $email.";
+            $response['data'] =$members;
+            return response()->json($response, 200);
     }
 
     /**
