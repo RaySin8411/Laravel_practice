@@ -37,7 +37,7 @@ class LoginController
                     return "login as admin, your api token is $apiToken";
                 else
                     $response = array();
-                    $response['message'] = "login as user, your api token is $apiToken";
+//                    $response['message'] = "login as user, your api token is $apiToken";
                     $response['message'] = "You've logged in";
 //                    $data = array();
 //                    $data['api_token'] = $apiToken;
@@ -45,7 +45,10 @@ class LoginController
 
                     return response()->json($response, 200);
             }
-        }else return "Wrong email or password！";
+        }else
+            $response = array();
+            $response['message'] = "Wrong email or password！";
+            return response()->json($response, 201);
 
     }
 }
