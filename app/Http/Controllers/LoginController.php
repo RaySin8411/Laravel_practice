@@ -36,7 +36,14 @@ class LoginController
                 if ($member->isAdmin)
                     return "login as admin, your api token is $apiToken";
                 else
-                    return "login as user, your api token is $apiToken";
+                    $response = array();
+                    $response['message'] = "login as user, your api token is $apiToken";
+                    $response['message'] = "You've logged in";
+//                    $data = array();
+//                    $data['api_token'] = $apiToken;
+//                    $response['data'] = $data;
+
+                    return response()->json($response, 200);
             }
         }else return "Wrong email or password！";
 

@@ -63,7 +63,13 @@ class MemberController extends BaseController
             ]);
 
             if ($create) {
-                return "Register as an admin. Your Token is $apiToken.";
+                $response = array();
+                $response['message'] = "Register as an admin. Your Token is $apiToken.";
+                $data = array();
+                $data['api_token'] = $apiToken;
+                $response['data'] = $data;
+
+                return response()->json($response, 200);
             }
 
         } catch (Exception $e) {
@@ -96,7 +102,13 @@ class MemberController extends BaseController
         ]);
 
         if ($create)
-            return "Register as a normal user. Your api token is $apiToken";
+            $response = array();
+            $response['message'] = "You've registered";
+//            $data = array();
+//            $data['api_token'] = $apiToken;
+//            $response['data'] = $data;
+
+            return response()->json($response, 200);
     }
 
     /**
@@ -124,11 +136,17 @@ class MemberController extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return $this->sendError('Validation Error.', $validator->errors());
+            $response = array();
+            $response['message'] = "Email or Password doesn't suit data format!";
+            return response()->json($response, 201);
+//            return $this->sendError('Validation Error.', $validator->errors());
         }
         $member = Auth::user();
         if ($member->update($request->all()))
-            return $this->sendResponse($member->toArray(), 'Member updated successfully.');
+            $response = array();
+            $response['message'] = "Member updated successfully!";
+            return response()->json($response, 201);
+//            return $this->sendResponse($member->toArray(), 'Member updated successfully.');
     }
 
     /**
@@ -150,10 +168,14 @@ class MemberController extends BaseController
     {
         if ( Auth::user()->isAdmin){ //驗證是否為管理者
             if ($members->delete())
-                return $this->sendResponse($members->toArray(), 'Member deleted successfully.');
+                $response = array();
+                $response['message'] = "The user id deleted.";
+                return response()->json($response, 201);
+//                return $this->sendResponse($members->toArray(), 'Member deleted successfully.');
         }
         else
-            return "You have no authority to delete";
-
+            $response = array();
+            $response['message'] = "You have no authority to delete!";
+            return response()->json($response, 201);
     }
 }
