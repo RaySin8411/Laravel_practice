@@ -188,6 +188,14 @@ fetch(url, {
 }
 ```
 
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated"
+}
+```
+
 ### HTTP Request
 `GET api/user`
 
@@ -243,6 +251,14 @@ fetch(url, {
 ```json
 {
     "message": "Email or Password doesn't suit data format!"
+}
+```
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated"
 }
 ```
 
@@ -303,6 +319,14 @@ fetch(url, {
 }
 ```
 
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated"
+}
+```
+
 ### HTTP Request
 `DELETE api/user/{users}`
 
@@ -341,6 +365,14 @@ fetch(url, {
 ```json
 {
     "message": "You've logged out."
+}
+```
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated"
 }
 ```
 
