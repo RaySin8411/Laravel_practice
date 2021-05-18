@@ -18,7 +18,19 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-//Route::apiResource('ubike', 'UbikeController');
 
 Route::get('ubike', 'UbikeController@index');
 Route::get('ubike/{sno}', ['as' => 'ubike', 'uses' => 'UbikeController@show']);
+
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->member();
+//});
+
+Route::post('user', 'MemberController@store'); //註冊
+Route::post('login', [ 'as' => 'login', 'uses' => 'LoginController@login']); //登入
+
+
+Route::middleware('auth:api')->get('user', 'MemberController@index');  //查看
+Route::middleware('auth:api')->put('user', 'MemberController@update'); //編輯
+Route::middleware('auth:api')->delete('user/{users}', 'MemberController@destroy'); //刪除
+Route::middleware('auth:api')->get('logout', 'LogoutController@logout'); //登出
