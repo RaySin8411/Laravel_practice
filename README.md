@@ -3446,7 +3446,7 @@ fetch(url, {
 #### Body Parameters
 
 Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
+--- | --- | --- | --- | ---
 email | String | required | 電郵
 password | String | required | 密碼
     
@@ -3575,7 +3575,7 @@ fetch(url, {
 #### Body Parameters
 
 Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
+--- | --- | --- | --- | ---
 email | String | required | 電郵
 password | String | required | 密碼
     
