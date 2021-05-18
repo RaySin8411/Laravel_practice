@@ -26,7 +26,7 @@ Route::get('ubike/{sno}', ['as' => 'ubike', 'uses' => 'UbikeController@show']);
 //    return $request->member();
 //});
 
-Route::post('user', 'MemberController@store'); //註冊
+Route::post('register', 'MemberController@store'); //註冊
 Route::post('login', [ 'as' => 'login', 'uses' => 'LoginController@login']); //登入
 
 

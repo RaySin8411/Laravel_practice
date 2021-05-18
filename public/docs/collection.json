@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "b772ecd0-1ee7-4c52-8919-1917419f2ab5",
+        "_postman_id": "3ced0292-9251-4489-940d-54e9df041fa3",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -79,7 +79,7 @@
                         "url": {
                             "protocol": "http",
                             "host": "localhost",
-                            "path": "api\/user",
+                            "path": "api\/register",
                             "query": []
                         },
                         "method": "POST",
