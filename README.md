@@ -3444,10 +3444,11 @@ fetch(url, {
 `POST api/login`
 
 #### Body Parameters
+
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    `email` | String |  required  | 電郵
-        `password` | String |  required  | 密碼
+email | String | required | 電郵
+password | String | required | 密碼
     
 <!-- END_c3fa189a6c95ca36ad6ac4791a873d23 -->
 
@@ -3572,10 +3573,11 @@ fetch(url, {
 `PUT api/user`
 
 #### Body Parameters
+
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    `email` | String |  required  | 電郵
-        `password` | String |  required  | 密碼
+email | String | required | 電郵
+password | String | required | 密碼
     
 <!-- END_00f7d0be1226887c1ffa251c97c8740a -->
 
