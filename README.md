@@ -14,6 +14,360 @@ Welcome to the generated API reference.
 
 <!-- END_INFO -->
 
+# 使用者
+<!-- START_f0654d3f2fc63c11f5723f233cc53c83 -->
+## Register
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/user" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"1234@gmail.com","password":"12345678"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/user"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "1234@gmail.com",
+    "password": "12345678"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "message": "You've registered"
+}
+```
+
+### HTTP Request
+`POST api/user`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--- | --- | --- | --- | ---
+`email` | String |  required  | 電郵
+`password` | String |  required  | 密碼
+    
+<!-- END_f0654d3f2fc63c11f5723f233cc53c83 -->
+
+<!-- START_c3fa189a6c95ca36ad6ac4791a873d23 -->
+## Login
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"1234@gmail.com","password":"12345678"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "1234@gmail.com",
+    "password": "12345678"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "message": "You've logged in"
+}
+```
+> Example response (201):
+
+```json
+{
+    "message": "Wrong email or password！"
+}
+```
+
+### HTTP Request
+`POST api/login`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--- | --- | --- | --- | ---
+email | String | required | 電郵
+password | String | required | 密碼
+    
+<!-- END_c3fa189a6c95ca36ad6ac4791a873d23 -->
+
+<!-- START_2b6e5a4b188cb183c7e59558cce36cb6 -->
+## Userinfo
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/user" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/user"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "message": "Welcome 1234@gmail.com",
+    "data": {
+        "email": "1234@gmail.com",
+        "password": "12345678"
+    }
+}
+```
+> Example response (201):
+
+```json
+{
+    "message": "Welcome Admin",
+    "data": {
+        "total": 2,
+        "user": [
+            "test@1234.com",
+            "test2@222.com"
+        ]
+    }
+}
+```
+
+### HTTP Request
+`GET api/user`
+
+
+<!-- END_2b6e5a4b188cb183c7e59558cce36cb6 -->
+
+<!-- START_00f7d0be1226887c1ffa251c97c8740a -->
+## Update User
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/user" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"1234@gmail.com","password":"12345678"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/user"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "1234@gmail.com",
+    "password": "12345678"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "message": "Member updated successfully!"
+}
+```
+> Example response (201):
+
+```json
+{
+    "message": "Email or Password doesn't suit data format!"
+}
+```
+
+### HTTP Request
+`PUT api/user`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--- | --- | --- | --- | ---
+email | String | required | 電郵
+password | String | required | 密碼
+    
+<!-- END_00f7d0be1226887c1ffa251c97c8740a -->
+
+<!-- START_98631eeb6c1c227e5fdcbb6671d68207 -->
+## Delete User
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/user/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/user/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "message": "The user id deleted."
+}
+```
+> Example response (201):
+
+```json
+{
+    "message": "You have no authority to delete!"
+}
+```
+
+### HTTP Request
+`DELETE api/user/{users}`
+
+
+<!-- END_98631eeb6c1c227e5fdcbb6671d68207 -->
+
+<!-- START_00e7e21641f05de650dbe13f242c6f2c -->
+## Logout
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "message": "You've logged out."
+}
+```
+
+### HTTP Request
+`GET api/logout`
+
+
+<!-- END_00e7e21641f05de650dbe13f242c6f2c -->
+
+
 # Ubike
 <!-- START_6a2f889edad8db785fb427045c2a5173 -->
 ## 所有Ubike資訊
@@ -3326,361 +3680,5 @@ fetch(url, {
 
 
 <!-- END_970daf40f914062417baf9b75d50b434 -->
-
-# 使用者
-<!-- START_f0654d3f2fc63c11f5723f233cc53c83 -->
-## Register
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://localhost/api/user" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"email":"1234@gmail.com","password":"12345678"}'
-
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/user"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "email": "1234@gmail.com",
-    "password": "12345678"
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "message": "You've registered"
-}
-```
-
-### HTTP Request
-`POST api/user`
-
-#### Body Parameters
-
-Parameter | Type | Status | Description
-
---- | --- | --- | --- | ---
-
-`email` | String |  required  | 電郵
-
-`password` | String |  required  | 密碼
-    
-<!-- END_f0654d3f2fc63c11f5723f233cc53c83 -->
-
-<!-- START_c3fa189a6c95ca36ad6ac4791a873d23 -->
-## Login
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://localhost/api/login" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"email":"1234@gmail.com","password":"12345678"}'
-
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/login"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "email": "1234@gmail.com",
-    "password": "12345678"
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "message": "You've logged in"
-}
-```
-> Example response (201):
-
-```json
-{
-    "message": "Wrong email or password！"
-}
-```
-
-### HTTP Request
-`POST api/login`
-
-#### Body Parameters
-
-Parameter | Type | Status | Description
---- | --- | --- | --- | ---
-email | String | required | 電郵
-password | String | required | 密碼
-    
-<!-- END_c3fa189a6c95ca36ad6ac4791a873d23 -->
-
-<!-- START_2b6e5a4b188cb183c7e59558cce36cb6 -->
-## Userinfo
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/user" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/user"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "message": "Welcome 1234@gmail.com",
-    "data": {
-        "email": "1234@gmail.com",
-        "password": "12345678"
-    }
-}
-```
-> Example response (201):
-
-```json
-{
-    "message": "Welcome Admin",
-    "data": {
-        "total": 2,
-        "user": [
-            "test@1234.com",
-            "test2@222.com"
-        ]
-    }
-}
-```
-
-### HTTP Request
-`GET api/user`
-
-
-<!-- END_2b6e5a4b188cb183c7e59558cce36cb6 -->
-
-<!-- START_00f7d0be1226887c1ffa251c97c8740a -->
-## Update User
-
-> Example request:
-
-```bash
-curl -X PUT \
-    "http://localhost/api/user" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"email":"1234@gmail.com","password":"12345678"}'
-
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/user"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "email": "1234@gmail.com",
-    "password": "12345678"
-}
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "message": "Member updated successfully!"
-}
-```
-> Example response (201):
-
-```json
-{
-    "message": "Email or Password doesn't suit data format!"
-}
-```
-
-### HTTP Request
-`PUT api/user`
-
-#### Body Parameters
-
-Parameter | Type | Status | Description
---- | --- | --- | --- | ---
-email | String | required | 電郵
-password | String | required | 密碼
-    
-<!-- END_00f7d0be1226887c1ffa251c97c8740a -->
-
-<!-- START_98631eeb6c1c227e5fdcbb6671d68207 -->
-## Delete User
-
-<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://localhost/api/user/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/user/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "message": "The user id deleted."
-}
-```
-> Example response (201):
-
-```json
-{
-    "message": "You have no authority to delete!"
-}
-```
-
-### HTTP Request
-`DELETE api/user/{users}`
-
-
-<!-- END_98631eeb6c1c227e5fdcbb6671d68207 -->
-
-<!-- START_00e7e21641f05de650dbe13f242c6f2c -->
-## Logout
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/logout" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/logout"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "message": "You've logged out."
-}
-```
-
-### HTTP Request
-`GET api/logout`
-
-
-<!-- END_00e7e21641f05de650dbe13f242c6f2c -->
 
 
