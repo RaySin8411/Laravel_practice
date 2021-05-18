@@ -3379,10 +3379,14 @@ fetch(url, {
 `POST api/user`
 
 #### Body Parameters
+
 Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    `email` | String |  required  | 電郵
-        `password` | String |  required  | 密碼
+
+--- | --- | --- | --- | ---
+
+`email` | String |  required  | 電郵
+
+`password` | String |  required  | 密碼
     
 <!-- END_f0654d3f2fc63c11f5723f233cc53c83 -->
 
