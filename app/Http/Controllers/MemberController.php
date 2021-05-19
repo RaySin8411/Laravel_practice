@@ -20,6 +20,7 @@ class MemberController extends BaseController
     /**
      * Userinfo
      *
+     * @authenticated
      * @response 200{
      *  "message":"Welcome 1234@gmail.com", "data": { "email" : "1234@gmail.com", "password": "12345678"}
      * }
@@ -47,6 +48,8 @@ class MemberController extends BaseController
 
     /**
      * Store a newly created resource in storage.
+     *
+     * 暫時沒用到
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -118,6 +121,7 @@ class MemberController extends BaseController
     /**
      * Update User
      *
+     * @authenticated
      * @bodyParam email String required 電郵 Example: 1234@gmail.com
      * @bodyParam password String required 密碼 Example: 12345678
      * @response 200{

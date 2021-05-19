@@ -16,6 +16,8 @@ class LogoutController extends Controller
 
     /**
      * Logout
+     *
+     * @authenticated
      * @response {
      *  "message": "You've logged out."
      * }
