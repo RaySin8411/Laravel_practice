@@ -49829,9 +49829,12 @@ var app = new Vue({
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
   \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'laravel-echo'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -49880,6 +49883,18 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+
+
+window.Echo = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'laravel-echo'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+  broadcaster: 'socket.io',
+  host: window.location.hostname + ':6001'
+});
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'laravel-echo'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()).channel("orderStatus") // 广播频道名称
+.listen('OrderShipped', function (e) {
+  // 消息名称
+  console.log(e); // 收到消息进行的操作，参数 e 为所携带的数据
+});
 
 /***/ }),
 
@@ -49970,8 +49985,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\q8977\PhpstormProjects\everfortuneai_backend_homework\youbike\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\q8977\PhpstormProjects\everfortuneai_backend_homework\youbike\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\EFAI-PD08\Desktop\everfortuneai_backend_homework\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\EFAI-PD08\Desktop\everfortuneai_backend_homework\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
