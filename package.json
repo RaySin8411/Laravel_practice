@@ -15,6 +15,7 @@
         "bootstrap": "^4.0.0",
         "cross-env": "^5.1",
         "jquery": "^3.2",
+        "laravel-echo": "^1.11.3",
         "laravel-mix": "^6.0.37",
         "lodash": "^4.17.13",
         "popper.js": "^1.12",
@@ -23,5 +24,9 @@
         "sass-loader": "7.*",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "pusher-js": "^7.0.3",
+        "serve": "^12.0.1"
     }
 }
