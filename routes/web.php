@@ -34,3 +34,8 @@ Route::group(['prefix'=>'2fa'], function(){
 Route::get('/test_middleware', function () {
     return "2FA middleware work!";
 })->middleware(['auth', '2fa']);
+
+// For websockets
+Route::get('/', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
