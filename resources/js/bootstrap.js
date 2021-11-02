@@ -11,7 +11,8 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
-} catch (e) {}
+} catch (e) {
+}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -53,3 +54,14 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+import Echo from 'laravel-echo'
+
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: window.location.hostname + ':6001'
+});
+Echo.channel(`orderStatus`) // 广播频道名称
+    .listen('OrderShipped', (e) => { // 消息名称
+        console.log(e); // 收到消息进行的操作，参数 e 为所携带的数据
+    });
